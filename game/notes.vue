@@ -24,6 +24,8 @@ import { ref, computed } from "vue"
 
 
 
+
+
 export default {
     setup(){
         //capacity is the the variable and function that the template
@@ -54,3 +56,26 @@ export default {
 
 
 </script>
+
+<!--using the reactive object-->
+
+import {reactive, computed} from "vue"
+export default {
+    setup() {
+        const event = reactive({
+            capacity: 4,
+            attending: ["Tim", "Bob", "Joe"],
+            spacesLeft: computed(() => {
+                return event.capacity - event.attending.length
+            })
+        });
+
+    function increaseCapacity() { event.capacity++}
+    return {event. increaseCapacity};
+
+    
+
+    }
+}
+
+//splitting an event object will remove its reactivity
